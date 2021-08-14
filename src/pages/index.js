@@ -9,8 +9,7 @@ import SiteMetadata from "../components/SiteMetadata"
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <SiteMetadata title="Home" description="Portfolio of John Doe" />
-
+      <SiteMetadata title="Home" description="Portfolio of Jay Yoo" />
       <Hero />
 
       <div className="bg-gray-100 py-12 lg:py-16">
@@ -28,11 +27,11 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const query = graphql`
-  query HomeQuery {
-    portfolio: allContentfulPortfolio {
-      nodes {
-        ...PortfolioCard
-      }
+query HomeQuery {
+  portfolio: allContentfulPortfolio {
+    nodes {
+      ...PortfolioCard
     }
   }
+}
 `

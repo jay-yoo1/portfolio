@@ -1,5 +1,4 @@
 import classNames from "classnames"
-import addToMailchimp from "gatsby-plugin-mailchimp"
 import React, { useState } from "react"
 import Button from "../components/Button"
 
@@ -12,44 +11,41 @@ const Newsletter = () => {
     event.preventDefault()
     setDisabled(true)
     setMessage("Sending...")
-    const response = await addToMailchimp(email)
-    if (response.result === "error") {
-      if (response.msg.toLowerCase().includes("already subscribed")) {
-        setMessage("You're already on to the list!")
-      } else {
-        setMessage("Some error occured while subscribing you to the list.")
-      }
-      setDisabled(false)
-    } else {
-      setMessage(
-        "Thanks! Please check your e-mail and click the confirmation link."
-      )
-    }
   }
 
   return (
     <div className="container py-12 lg:py-16">
       <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight">
-        Sign up for my newsletter
+        Contact Me
       </h2>
-      <form className="mt-8 sm:flex" onSubmit={handleSubmit}>
-        <input
-          aria-label="Email address"
-          className="appearance-none w-full sm:max-w-xs px-5 py-3 border border-gray-400 leading-snug rounded-md text-gray-900 bg-white placeholder-gray-600 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out"
-          onChange={event => setEmail(event.target.value)}
-          placeholder="Enter your email"
-          required
-          type="email"
-        />
-        <div className="mt-3 sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-          <Button disabled={disabled}>Sign up</Button>
+      <form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact" className="mt-8 sm:flex">
+        <input type="hidden" name="bot-field" />
+        <input type="hidden" name="form-name" value="contact" />
+        <label>
+          Name
+          <input type="text" name="name" id="name" aria-label="Name"   className="appearance-none w-full sm:max-w-xs px-5 py-3 border border-gray-400 leading-snug rounded-md text-gray-900 bg-white placeholder-gray-600 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out" />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" id="email" aria-label="Email address"
+            className="appearance-none w-full sm:max-w-xs px-5 py-3 border border-gray-400 leading-snug rounded-md text-gray-900 bg-white placeholder-gray-600 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out"
+            placeholder="Enter your email"
+            required
+          />
+        </label>
+        <label>
+          Subject
+          <input type="text" name="subject" id="subject"   className="appearance-none w-full sm:max-w-xs px-5 py-3 border border-gray-400 leading-snug rounded-md text-gray-900 bg-white placeholder-gray-600 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out"/>
+        </label>
+        <br/> <br/>
+        <label>
+          Message
+          <textarea name="message" id="message" rows="5"  className="appearance-none w-full sm:max-w-xs px-5 py-3 border border-gray-400 leading-snug rounded-md text-gray-900 bg-white placeholder-gray-600 focus:outline-none focus:shadow-outline focus:border-blue-300 transition duration-150 ease-in-out" />
+        </label>
+        < div className="mt-3 sm:mt-0 sm:ml-3 sm:flex-shrink-0" >
+          <Button type="submit" disabled={disabled}>Send</Button>
         </div>
       </form>
-      <div
-        className={classNames("w-full pt-4 text-sm", { "opacity-0": !message })}
-      >
-        {message}
-      </div>
     </div>
   )
 }
