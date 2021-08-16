@@ -51,6 +51,17 @@ export const query = graphql`
   fragment PortfolioCard on ContentfulPortfolio {
     id
     name
+    carousel {
+        id
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 960, quality: 85) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+        title
+      }
       gallery {
         id
         localFile {
@@ -62,16 +73,6 @@ export const query = graphql`
         }
         title
       }
-      carousel {
-        id
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 960, quality: 85) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        title
-      }
+      
     }
 `
