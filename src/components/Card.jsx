@@ -17,7 +17,7 @@ const Card = props => {
                 {name}
               </h1>
             </div>
-            <div className="w-full lg:w-2/3 pb-8">
+            <div className="w-full lg:w-3/3 pb-8">
               {gallery && gallery.length === 1 && (
                 <Img
                   fluid={gallery[0].localFile.childImageSharp.fluid}

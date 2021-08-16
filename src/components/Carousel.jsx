@@ -10,8 +10,9 @@ export const Carousel = ({ images }) => {
   const swiperParams = {
     pagination: {
       el: ".swiper-pagination",
-      type: "bullets",
+      type: "progressbar",
       clickable: true,
+      navigation: true,
     },
   }
   return (
