@@ -2,7 +2,7 @@ import Img from "gatsby-image"
 import { graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import Carousel from "../components/Carousel"
+import PortfolioScroll from "./PortfolioScroll"
 
 const Card = props => {
   const { name, gallery,} = props
@@ -23,7 +23,7 @@ const Card = props => {
                   alt={name}
                 />
               )}
-              {gallery && gallery.length > 1 && <Carousel images={gallery} />}
+              {gallery && gallery.length > 1 && <PortfolioScroll images={gallery} />}
             </div>
           </div>
         </div>

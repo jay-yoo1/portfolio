@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
 import SiteMetadata from "../components/SiteMetadata"
-import Carousel from "../components/Carousel"
+import PortfolioScroll from "../components/PortfolioScroll"
 import Newsletter from "../components/Newsletter"
 import Layout from "../layouts/Layout"
 
@@ -27,7 +27,7 @@ export default props => {
                   alt={name}
                 />
               )}
-              {gallery && gallery.length > 1 && <Carousel images={gallery} />}
+              {gallery && gallery.length > 1 && <PortfolioScroll images={gallery} />}
             </div>
             <div className="w-full lg:w-1/3 lg:pl-8 xl:pl-12">
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
