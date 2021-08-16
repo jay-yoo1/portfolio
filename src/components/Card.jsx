@@ -5,8 +5,7 @@ import React from "react"
 import Carousel from "../components/Carousel"
 
 const Card = props => {
-  const { name, slug, summary, thumbnail, description,
-    gallery,} = props
+  const { name, gallery,} = props
 
   return (
       <div className="bg-gray-0 py-2">
@@ -16,14 +15,6 @@ const Card = props => {
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-2">
                 {name}
               </h1>
-              <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
-                {summary}
-              </h2>
-              {description && (
-                <div className="my-4 text-base text-gray-700 whitespace-pre-line">
-                  {description.description}
-                </div>
-              )}
             </div>
             <div className="w-full lg:w-3/3 pb-8">
               {gallery && gallery.length === 1 && (
@@ -34,7 +25,6 @@ const Card = props => {
               )}
               {gallery && gallery.length > 1 && <Carousel images={gallery} />}
             </div>
-            
           </div>
         </div>
       </div>

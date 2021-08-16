@@ -8,19 +8,14 @@ import Layout from "../layouts/Layout"
 
 export default props => {
   const {
-    description,
     gallery,
     name,
-    summary,
-    thumbnail,
   } = props.data.item
 
   return (
     <Layout>
       <SiteMetadata
         title={name}
-        description={summary}
-        image={thumbnail.localFile.publicURL}
       />
       <div className="bg-gray-0 py-12 lg:py-16">
         <div className="container">
@@ -38,14 +33,6 @@ export default props => {
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-1">
                 {name}
               </h1>
-              <h2 className="text-xl leading-tight font-semibold tracking-tight text-blue-600 sm:text-2xl">
-                {summary}
-              </h2>
-              {description && (
-                <div className="my-4 text-base text-gray-700 whitespace-pre-line">
-                  {description.description}
-                </div>
-              )}
             </div>
           </div>
         </div>
