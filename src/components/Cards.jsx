@@ -2,7 +2,6 @@ import classNames from "classnames"
 import PropTypes from "prop-types"
 import React from "react"
 import Card from "./Card"
-import portfolioItem from "../templates/portfolio-item"
 
 const Cards = ({ items }) => {
   return (

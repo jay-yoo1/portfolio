@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import PortfolioScroll from "./PortfolioScroll"
+import Carousel from "./Carousel"
 
 const Card = props => {
   const { name, gallery,} = props
@@ -15,6 +16,15 @@ const Card = props => {
               <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-2">
                 {name}
               </h1>
+            </div>
+            <div className="w-full lg:w-2/3 pb-8">
+              {gallery && gallery.length === 1 && (
+                <Img
+                  fluid={gallery[0].localFile.childImageSharp.fluid}
+                  alt={name}
+                />
+              )}
+              {gallery && gallery.length > 1 && <Carousel images={gallery} />}
             </div>
             <div className="w-full lg:w-3/3 pb-8">
               {gallery && gallery.length === 1 && (
