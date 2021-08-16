@@ -5,6 +5,7 @@ import SiteMetadata from "../components/SiteMetadata"
 import PortfolioScroll from "../components/PortfolioScroll"
 import Newsletter from "../components/Newsletter"
 import Layout from "../layouts/Layout"
+import Carousel from "../components/Carousel"
 
 export default props => {
   const {
@@ -20,6 +21,15 @@ export default props => {
       <div className="bg-gray-0 py-12 lg:py-16">
         <div className="container">
           <div className="flex flex-wrap">
+          <div className="w-full lg:w-2/3 pb-8">
+              {gallery && gallery.length === 1 && (
+                <Img
+                  fluid={gallery[0].localFile.childImageSharp.fluid}
+                  alt={name}
+                />
+              )}
+              {gallery && gallery.length > 1 && <Carousel images={gallery} />}
+            </div>
             <div className="w-full lg:w-2/3 pb-8">
               {gallery && gallery.length === 1 && (
                 <Img
