@@ -12,8 +12,8 @@ export const Carousel = ({ images }) => {
       el: ".swiper-pagination",
       type: "progressbar",
       clickable: true,
-      navigation: true,
     },
+    navigation: true,
   }
   return (
     <Swiper {...swiperParams}>
