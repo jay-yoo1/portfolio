@@ -20,7 +20,7 @@ export const PortfolioScroll = ({ images }) => {
   )
 }
 
-Carousel.propTypes = {
+PortfolioScroll.propTypes = {
   images: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 

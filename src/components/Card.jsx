@@ -33,11 +33,6 @@ const Card = props => {
 
 Card.propTypes = {
   name: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  thumbnail: PropTypes.shape({
-    localFile: PropTypes.object,
-  }),
 }
 
 export default Card
