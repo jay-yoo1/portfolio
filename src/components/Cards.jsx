@@ -13,7 +13,6 @@ const Cards = ({ items }) => {
             className={classNames("",)}
             key={item.id}
           >
-            <portfolioItem {...item} />
             <Card {...item} />
           </div>
         ))}
