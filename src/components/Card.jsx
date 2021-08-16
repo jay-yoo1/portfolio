@@ -18,13 +18,13 @@ const Card = props => {
               </h1>
             </div>
             <div className="w-full lg:w-3/3 pb-8">
-              {gallery && gallery.length === 1 && (
+              {carousel && carousel.length === 1 && (
                 <Img
-                  fluid={gallery[0].localFile.childImageSharp.fluid}
+                  fluid={carousel[0].localFile.childImageSharp.fluid}
                   alt={name}
                 />
               )}
-              {gallery && gallery.length > 1 && <Carousel images={gallery} />}
+              {carousel && carousel.length > 1 && <Carousel images={carousel} />}
             </div>
             <div className="w-full lg:w-3/3 pb-8">
               {gallery && gallery.length === 1 && (
