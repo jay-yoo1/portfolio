@@ -13,7 +13,10 @@ export const Carousel = ({ images }) => {
       type: "progressbar",
       clickable: true,
     },
-    navigation: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
   }
   return (
     <Swiper {...swiperParams}>
