@@ -18,13 +18,13 @@ const Card = props => {
               </h1>
             </div>
             <div className="w-full lg:w-3/3 pb-8">
-              {carousel && carousel.length === 1 && (
+              {gallery && gallery.length === 1 && (
                 <Img
-                  fluid={carousel[0].localFile.childImageSharp.fluid}
+                  fluid={gallery[0].localFile.childImageSharp.fluid}
                   alt={name}
                 />
               )}
-              {carousel && carousel.length > 1 && <Carousel images={carousel} />}
+              {gallery && gallery.length > 1 && <Carousel images={gallery} />}
             </div>
             <div className="w-full lg:w-3/3 pb-8">
               {gallery && gallery.length === 1 && (
@@ -51,17 +51,6 @@ export const query = graphql`
   fragment PortfolioCard on ContentfulPortfolio {
     id
     name
-    carousel {
-        id
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 960, quality: 85) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        title
-      }
       gallery {
         id
         localFile {
