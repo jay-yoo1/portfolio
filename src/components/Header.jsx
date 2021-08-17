@@ -21,10 +21,8 @@ const Header = () => {
 
   return (
     <div className="container pt-6 pb-12 md:pt-12">
-      <div className="flex justify-between items-center">
-        <Link to="/">
-          <img alt="Logo" className="w-24 md:w-32" src="logo.jpg" />
-        </Link>
+      <div className="flex justify-end items-center">
+        
 
         <button
           className="sm:hidden"
