@@ -1,5 +1,5 @@
 import Img from "gatsby-image"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import PortfolioScroll from "./PortfolioScroll"
@@ -55,7 +55,7 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 960, quality: 85) {
+            fluid(maxWidth: 960, quality: 70) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
@@ -66,13 +66,12 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 960, quality: 85) {
+            fluid(maxWidth: 960, quality: 70) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }
         }
         title
       }
-      
     }
 `

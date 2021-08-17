@@ -6,6 +6,7 @@
   "dependencies": {
     "autoprefixer": "^9.7.6",
     "classnames": "^2.2.6",
+    "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "framer-motion": "^1.10.3",
     "gatsby": "^2.21.10",
@@ -43,7 +44,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "postinstall": "node ./bin/hello.js",

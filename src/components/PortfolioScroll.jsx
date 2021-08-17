@@ -8,7 +8,7 @@ export const PortfolioScroll = ({ images }) => {
    <div>
       {images.map(image => {
         return (
-          <div key={`slide_${image.id}`}>
+          <div className="py-5">
             <Img
               fluid={image.localFile.childImageSharp.fluid}
               alt={image.title}

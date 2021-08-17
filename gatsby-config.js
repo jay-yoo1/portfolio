@@ -14,12 +14,6 @@ module.exports = {
       { name: "Home", to: "/" },
       { name: "About", to: "/about" },
     ],
-    links: {
-      facebook: "https://www.facebook.com/",
-      instagram: "https://www.instagram.com/",
-      pinterest: "https://pinterest.com/",
-      twitter: "https://twitter.com/",
-    },
     locale: "en",
     title: `Jay Yoo`,
     description: `Animation portfolio of Jay Yoo`,
