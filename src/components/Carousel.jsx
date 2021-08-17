@@ -17,6 +17,7 @@ export const Carousel = ({ images }) => {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
     },
+    effect: "fade",
   }
   return (
     <Swiper {...swiperParams}>
