@@ -5,7 +5,7 @@ import Card from "./Card"
 
 const Cards = ({ items }) => {
   return (
-    <div className="container">
+    <div className="container bg-black">
       <div className="">
         {items.map(item => (
           <div

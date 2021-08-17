@@ -9,11 +9,11 @@ const Card = props => {
   const { name, carousel, gallery,} = props
 
   return (
-      <div className="bg-gray-0 py-2">
+      <div className="bg-black-0 py-2">
         <div className="container">
           <div className="flex flex-wrap">
           <div className="w-full lg:w-3/3">
-              <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-2">
+              <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-white-900 sm:text-4xl mb-2">
                 {name}
               </h1>
             </div>

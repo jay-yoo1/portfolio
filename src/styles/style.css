@@ -1,7 +1,8 @@
 @tailwind base;
 
+
 body {
-  @apply .bg-white .font-sans .antialiased;
+  @apply .bg-black .font-sans .antialiased .text-white;
 }
 
 @tailwind components;
@@ -9,7 +10,7 @@ body {
 @tailwind utilities;
 
 .container {
-  @apply .max-w-screen-xl .mx-auto .px-4;
+  @apply .max-w-screen-xl .mx-auto .px-4 .bg-black;
 }
 
 @screen md {
