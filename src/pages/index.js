@@ -5,6 +5,7 @@ import Hero from "../components/Hero"
 import Layout from "../layouts/Layout"
 import Newsletter from "../components/Newsletter"
 import SiteMetadata from "../components/SiteMetadata"
+import ContactPage from "../components/contact-page"
 
 const IndexPage = ({ data }) => {
   return (
@@ -20,7 +21,7 @@ const IndexPage = ({ data }) => {
         )}
       </div>
       <img src="banner_bottom.jpg" alt="Thank You!"/>
-      <Newsletter />
+      <ContactPage />
     </Layout>
   )
 }

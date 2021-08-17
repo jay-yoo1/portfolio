@@ -24,3 +24,8 @@ body {
     @apply .px-8;
   }
 }
+
+label {
+  display: block;
+  @apply .my-4;
+}

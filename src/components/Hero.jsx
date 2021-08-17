@@ -1,7 +1,7 @@
 import React from "react"
 
 const Hero = () => (
-  <div className="container py-12 lg:pb-16">
+  <div className="container">
     <img src="banner_top.jpg" alt="Welcome" />
   </div>
 )
