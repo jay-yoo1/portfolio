@@ -6,16 +6,17 @@ import PortfolioScroll from "./PortfolioScroll"
 import Carousel from "./Carousel"
 
 const Card = props => {
-  const { name, carousel, gallery,} = props
+  const { name, banner, carousel, gallery,} = props
 
   return (
       <div className="bg-black-0 py-2">
         <div className="container">
+        <Img
+                  fluid={banner.localFile.childImageSharp.fluid}
+                  alt={name}
+            />
           <div className="flex flex-wrap">
           <div className="w-full lg:w-3/3">
-              <h1 className="text-3xl leading-tight font-extrabold tracking-tight text-white-900 sm:text-4xl mb-2">
-                {name}
-              </h1>
             </div>
             <div className="w-full lg:w-3/3 pb-8">
               {carousel && carousel.length === 1 && (
@@ -51,6 +52,17 @@ export const query = graphql`
   fragment PortfolioCard on ContentfulPortfolio {
     id
     name
+    banner {
+        id
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 960, quality: 70) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
+            }
+          }
+        }
+        title
+    }
     carousel {
         id
         localFile {
