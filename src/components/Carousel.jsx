@@ -1,4 +1,4 @@
-import { GatsbyImage } from "gatsby-plugin-image"
+import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import React from "react"
 import Slider from "react-slick";
@@ -23,8 +23,8 @@ export const Carousel = ({ images }) => {
       {images.map(image => {
         return (
           <div>
-            <GatsbyImage
-              image={image.localFile.childImageSharp.gatsbyImageData}
+            <Img
+              fluid={image.localFile.childImageSharp.fluid}
               alt={image.title}
             />
           </div>

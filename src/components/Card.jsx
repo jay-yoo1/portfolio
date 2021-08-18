@@ -1,4 +1,4 @@
-import { GatsbyImage } from "gatsby-plugin-image"
+import Img from "gatsby-image"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
@@ -11,8 +11,8 @@ const Card = props => {
     return (
         <div className="bg-black-0 py-2">
             <div className="container">
-                <GatsbyImage
-                    image={banner.localFile.childImageSharp.gatsbyImageData}
+                <Img
+                    fluid={banner.localFile.childImageSharp.fluid}
                     alt={name}
                 />
                 <div className="flex flex-wrap">
@@ -41,18 +41,24 @@ export const query = graphql`
     id
     name
     banner {
-        localFile {
-          childImageSharp {
-            gatsbyImageData
+      id
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 960, quality: 65) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
+      }
+      title
     }
     carousel {
         id
         localFile {
-            childImageSharp {
-                gatsbyImageData
-              }
+          childImageSharp {
+            fluid(maxWidth: 960, quality: 65) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
+            }
+          }
         }
         title
       }
@@ -60,10 +66,13 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            gatsbyImageData
+            fluid(maxWidth: 960, quality: 65) {
+              ...GatsbyImageSharpFluid_withWebp_noBase64
+            }
           }
         }
         title
       }
+      
     }
 `

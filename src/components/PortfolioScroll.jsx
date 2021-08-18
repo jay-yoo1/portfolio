@@ -1,4 +1,4 @@
-import { GatsbyImage } from "gatsby-plugin-image"
+import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -9,8 +9,8 @@ export const PortfolioScroll = ({ images }) => {
       {images.map(image => {
         return (
           <div className="py-5">
-            <GatsbyImage
-              image={image.localFile.childImageSharp.gatsbyImageData}
+            <Img
+              fluid={image.localFile.childImageSharp.fluid}
               alt={image.title}
             />
           </div>
