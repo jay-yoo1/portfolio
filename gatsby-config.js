@@ -28,8 +28,6 @@ module.exports = {
         spaceId: CONTENTFUL_SPACE_ID,
         accessToken: CONTENTFUL_ACCESS_TOKEN,
         downloadLocal: true,
-        assetDownloadWorkers: 1,
-        pageLimit: 1,
       },
     },
     {
