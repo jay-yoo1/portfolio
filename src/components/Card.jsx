@@ -1,4 +1,4 @@
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
@@ -6,44 +6,32 @@ import PortfolioScroll from "./PortfolioScroll"
 import Carousel from "./Carousel"
 
 const Card = props => {
-  const { name, banner, carousel, gallery,} = props
+    const { name, banner, carousel, gallery, } = props
 
-  return (
-      <div className="bg-black-0 py-2">
-        <div className="container">
-        <Img
-                  fluid={banner.localFile.childImageSharp.fluid}
-                  alt={name}
-            />
-          <div className="flex flex-wrap">
-          <div className="w-full lg:w-3/3">
-            </div>
-            <div className="w-full lg:w-3/3 pb-8">
-              {carousel && carousel.length === 1 && (
-                <Img
-                  fluid={carousel[0].localFile.childImageSharp.fluid}
-                  alt={name}
+    return (
+        <div className="bg-black-0 py-2">
+            <div className="container">
+                <GatsbyImage
+                    image={banner.localFile.childImageSharp.gatsbyImageData}
+                    alt={name}
                 />
-              )}
-              {carousel && carousel.length > 1 && <Carousel images={carousel} />}
+                <div className="flex flex-wrap">
+                    <div className="w-full lg:w-3/3">
+                    </div>
+                    <div className="w-full lg:w-3/3 pb-8">
+                        <Carousel images={carousel} />
+                    </div>
+                    <div className="w-full lg:w-3/3 pb-8">
+                        <PortfolioScroll images={gallery} />
+                    </div>
+                </div>
             </div>
-            <div className="w-full lg:w-3/3 pb-8">
-              {gallery && gallery.length === 1 && (
-                <Img
-                  fluid={gallery[0].localFile.childImageSharp.fluid}
-                  alt={name}
-                />
-              )}
-              {gallery && gallery.length > 1 && <PortfolioScroll images={gallery} />}
-            </div>
-          </div>
         </div>
-      </div>
-  )
+    )
 }
 
 Card.propTypes = {
-  name: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
 }
 
 export default Card
@@ -53,24 +41,18 @@ export const query = graphql`
     id
     name
     banner {
-        id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 960, quality: 70) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
-            }
+            gatsbyImageData
           }
         }
-        title
     }
     carousel {
         id
         localFile {
-          childImageSharp {
-            fluid(maxWidth: 960, quality: 70) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
-            }
-          }
+            childImageSharp {
+                gatsbyImageData
+              }
         }
         title
       }
@@ -78,9 +60,7 @@ export const query = graphql`
         id
         localFile {
           childImageSharp {
-            fluid(maxWidth: 960, quality: 70) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
-            }
+            gatsbyImageData
           }
         }
         title

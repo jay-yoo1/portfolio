@@ -1,37 +1,36 @@
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types"
 import React from "react"
-import Swiper from "react-id-swiper"
+import Slider from "react-slick";
 
-import "swiper/css/swiper.css"
-import "./Carousel.css"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const Carousel = ({ images }) => {
-  const swiperParams = {
-    pagination: {
-      el: ".swiper-pagination",
-      type: "progressbar",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    effect: "fade",
-  }
+  const settings = {
+    dots: false,
+    fade: true,
+    infinite: false,
+    speed: 1,
+    slidesToShow: 1,
+
+  slide: '> div',
+
+    slidesToScroll: 1
+  };
   return (
-    <Swiper {...swiperParams}>
+    <Slider {...settings}>
       {images.map(image => {
         return (
-          <div key={`slide_${image.id}`}>
-            <Img
-              fluid={image.localFile.childImageSharp.fluid}
+          <div>
+            <GatsbyImage
+              image={image.localFile.childImageSharp.gatsbyImageData}
               alt={image.title}
             />
           </div>
         )
       })}
-    </Swiper>
+    </Slider>
   )
 }
 
